@@ -1,5 +1,5 @@
-const tmdbKey = "";
-const tmdbBaseUrl = "";
+const tmdbKey = "8573ee95bcbf991930dcfd787cc33470";
+const tmdbBaseUrl = "https://api.themoviedb.org/3/";
 const playBtn = document.getElementById("playBtn");
 
 const getGenres = () => {};
