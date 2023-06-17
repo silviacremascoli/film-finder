@@ -32,7 +32,8 @@ body {
 
 #moviePoster,
 #movieText,
-#movieReleaseDate {
+#movieReleaseDate,
+#likeOrDislikeBtns {
   width: 50%;
   float: left;
 }
@@ -84,7 +85,6 @@ select {
 }
 
 #likeOrDislikeBtns {
-  text-align: center;
   margin: 0px auto;
 }
 
@@ -101,6 +101,7 @@ select {
 #likeBtn {
   background-color: #249e57;
   color: darkgreen;
+  margin-left: 32px;
 }
 
 #dislikeBtn {
