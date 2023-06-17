@@ -31,7 +31,8 @@ body {
 }
 
 #moviePoster,
-#movieText {
+#movieText,
+#movieReleaseDate {
   width: 50%;
   float: left;
 }
@@ -43,15 +44,21 @@ img#moviePoster {
   margin: auto;
 }
 
-#movieText {
+#movieText,
+#movieReleaseDate {
   font-family: "Questrial";
   color: #fefbea;
   line-height: 1.25;
 }
 
 #movieTitle,
-#movieOverview {
+#movieOverview,
+#movieDate {
   padding: 32px;
+}
+
+#movieDate {
+  margin: 0;
 }
 
 #playBtn {
@@ -84,6 +91,7 @@ select {
 #likeBtn,
 #dislikeBtn {
   padding: 15px 25px;
+  margin: 10px;
   font-size: 25px;
   border-radius: 12px;
   border-style: none;

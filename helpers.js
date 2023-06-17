@@ -1,4 +1,4 @@
-// Populate dropdown menu with all the available genres
+// Populates dropdown menu with all the available genres
 const populateGenreDropdown = (genres) => {
   const select = document.getElementById("genres");
 
@@ -22,12 +22,14 @@ const showBtns = () => {
   btnDiv.removeAttribute("hidden");
 };
 
-// Clear the current movie from the screen
+// Clears the current movie from the screen
 const clearCurrentMovie = () => {
   const moviePosterDiv = document.getElementById("moviePoster");
   const movieTextDiv = document.getElementById("movieText");
+  const movieDateDiv = document.getElementById("movieReleaseDate");
   moviePosterDiv.innerHTML = "";
   movieTextDiv.innerHTML = "";
+  movieDateDiv.innerHTML = "";
 };
 
 // After liking a movie, clears the current movie from the screen and gets another random movie
@@ -42,7 +44,7 @@ const dislikeMovie = () => {
   showRandomMovie();
 };
 
-// Create HTML for movie poster
+// Creates HTML for movie poster
 const createMoviePoster = (posterPath) => {
   const moviePosterUrl = `https://image.tmdb.org/t/p/original/${posterPath}`;
 
@@ -53,7 +55,7 @@ const createMoviePoster = (posterPath) => {
   return posterImg;
 };
 
-// Create HTML for movie title
+// Creates HTML for movie title
 const createMovieTitle = (title) => {
   const titleHeader = document.createElement("h1");
   titleHeader.setAttribute("id", "movieTitle");
@@ -62,13 +64,22 @@ const createMovieTitle = (title) => {
   return titleHeader;
 };
 
-// Create HTML for movie overview
+// Creates HTML for movie overview
 const createMovieOverview = (overview) => {
   const overviewParagraph = document.createElement("p");
   overviewParagraph.setAttribute("id", "movieOverview");
   overviewParagraph.innerHTML = overview;
 
   return overviewParagraph;
+};
+
+// Creates HTML for movie release date
+const createMovieReleaseDate = (date) => {
+  const dateText = document.createElement("p");
+  dateText.setAttribute("id", "movieDate");
+  dateText.innerHTML = "Released on: " + moment(date).format("M/DD/YYYY");
+
+  return dateText;
 };
 
 // Returns a random movie from the first page of movies
@@ -82,6 +93,7 @@ const getRandomMovie = (movies) => {
 const displayMovie = (movieInfo) => {
   const moviePosterDiv = document.getElementById("moviePoster");
   const movieTextDiv = document.getElementById("movieText");
+  const movieDateDiv = document.getElementById("movieReleaseDate");
   const likeBtn = document.getElementById("likeBtn");
   const dislikeBtn = document.getElementById("dislikeBtn");
 
@@ -89,11 +101,13 @@ const displayMovie = (movieInfo) => {
   const moviePoster = createMoviePoster(movieInfo.poster_path);
   const titleHeader = createMovieTitle(movieInfo.title);
   const overviewText = createMovieOverview(movieInfo.overview);
+  const releaseDate = createMovieReleaseDate(movieInfo.release_date);
 
   // Append title, poster, and overview to page
   moviePosterDiv.appendChild(moviePoster);
   movieTextDiv.appendChild(titleHeader);
   movieTextDiv.appendChild(overviewText);
+  movieDateDiv.appendChild(releaseDate);
 
   showBtns();
   likeBtn.onclick = likeMovie;
