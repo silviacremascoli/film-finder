@@ -14,9 +14,16 @@ body {
 #genreForm,
 #playBtn {
   text-align: center;
-  margin: 0px auto;
+  margin: 10px auto;
   display: block;
   font-family: "Fredoka One", sans-serif;
+}
+
+#genres {
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 8px;
+  margin-top: 10px;
 }
 
 #movieInfo {
